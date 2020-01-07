@@ -1,0 +1,29 @@
+{
+  "name": "sharemoney",
+  "version": "1.0.0",
+  "description": "An application which helps in daily expense and sharing money among friends",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gouthamrg/ShareMoney.git"
+  },
+  "author": "Goutham RG",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gouthamrg/ShareMoney/issues"
+  },
+  "homepage": "https://github.com/gouthamrg/ShareMoney#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "joi": "^14.3.1",
+    "lodash": "^4.17.15",
+    "mongoose": "^5.8.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
