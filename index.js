@@ -11,14 +11,12 @@ if (!config.get('jwtPrivateKey')) {
 }
 
 mongoose.connect('mongodb://localhost/ShareMoney', { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => { console.log('Connected to db') })
+  .then(() => { console.log('Connected to db'); })
   .catch(() => { console.log('Error'); });
 
 app.use(express.json());
 app.use('/api/users', users);
 app.use('/api/auth', auth);
-
-
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Share Money Application listening on port ${port}!`));
