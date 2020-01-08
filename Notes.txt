@@ -1,0 +1,3 @@
+Drive Folder Name: ShareMoney
+
+Set the Env variable for config in the dev environment
