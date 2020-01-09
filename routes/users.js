@@ -55,6 +55,11 @@ router.get('/verify/:id', auth, async (req, res) => {
 
   if (req.params.id === user.hash) {
     //ToDO: delete the hash
+    const user = await User.update({ _id: req.user._id }, {
+      $unset: {
+        hash: 1
+      }
+    });
     return res.send('Verification Completed!');
   }
 
@@ -79,9 +84,10 @@ router.post('/sendEmailVerification', auth, async (req, res) => {
     subject: "Please confirm your Email account",
     html: "Hello,<br> Please Click on the link to verify your email.<br><a href=" + link + ">Click here to verify</a>"
   };
-  const { error, message } = await sendMail(mailOptions);
-  if (error) return res.status(500).send("something went wrong try again");
-  res.send(message);
+  const result = await sendMail(mailOptions);
+  res.send(result);
+  // if (error) return res.status(500).send("something went wrong try again");
+  // res.send(message);
 });
 
 module.exports = router;
