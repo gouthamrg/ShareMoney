@@ -6,3 +6,12 @@
     Password Validation
     Forgot Password
     change Password
+
+- SignIn/SignUp 
+    Google (https://medium.com/@jackrobertscott/how-to-use-google-auth-api-with-node-js-888304f7e3a0)
+
+- Backend Model ( Optional, Priority - 3 )
+    A User X cannot simply add transactions of user Y unless and untill they are mutually accepted as friends
+    - Changes Required in User:
+        Friends array
+        Routes 

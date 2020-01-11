@@ -11,7 +11,7 @@ const { sendMail } = require('./../utils/sendEmail');
 const { User, validate } = require('./../models/User');
 const auth = require('./../middlewares/auth');
 
-//register
+// register
 router.post('/register', async (req, res) => {
   const { error } = validate(req);
   if (error) return res.status(403).send(error.details[0].message);
@@ -69,7 +69,13 @@ router.post('/sendEmailVerification', auth, async (req, res) => {
   const mailOptions = {
     to: user.email,
     subject: "Please confirm your Email account",
-    html: "Hello,<br> Please Click on the link to verify your email.<br><a href=" + link + ">Click here to verify</a>"
+    html: `
+        Hey ${user.name},
+        <h3>ShareMoney App Email Verification</h3>
+        <p> 
+          <br />
+          <a href="${link}">Click here to verify</a>
+        </p>`
   };
   const result = await sendMail(mailOptions);
   res.send(result);
