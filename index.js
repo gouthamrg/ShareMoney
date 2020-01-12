@@ -5,8 +5,13 @@ const users = require('./routes/users');
 const mongoose = require('mongoose');
 const config = require('config');
 const auth = require('./routes/auth');
+// const logger = require('./middlewares/logger');
+const transactions = require('./routes/transaction');
 
-if (!config.get('jwtPrivateKey')) {
+//refactoring
+require('./startup/validation')();
+
+if (config.has('jwtPrivateKey') && !config.get('jwtPrivateKey')) {
   throw new Error('FATAL ERROR: jwtPrivateKey is not defined.');
 }
 
@@ -17,6 +22,7 @@ mongoose.connect('mongodb://localhost/ShareMoney', { useNewUrlParser: true, useU
 app.use(express.json());
 app.use('/api/users', users);
 app.use('/api/auth', auth);
+app.use('/api/transactions', transactions);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Share Money Application listening on port ${port}!`));
