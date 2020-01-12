@@ -10,6 +10,13 @@
 - SignIn/SignUp 
     Google (https://medium.com/@jackrobertscott/how-to-use-google-auth-api-with-node-js-888304f7e3a0)
 
+- Transaction Edit must be stored(Priority 1)
+    Amt changed?
+    whoEdited
+    date
+    user(paidby or paidFor)
+
+
 - Backend Model ( Optional, Priority - 3 )
     A User X cannot simply add transactions of user Y unless and untill they are mutually accepted as friends
     - Changes Required in User:
