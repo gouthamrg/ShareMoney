@@ -1,5 +1,7 @@
 .App {
-  text-align: center;
+  height: 100vh;
+  /* background-image: url('images/bg.jpg'); */
+  font-family: roboto;
 }
 
 .App-logo {
@@ -32,6 +34,7 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
