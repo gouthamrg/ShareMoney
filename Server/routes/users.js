@@ -6,7 +6,7 @@ const _ = require('lodash');
 const bcrypt = require('bcryptjs');
 const crypto = require('crypto');
 const hash = crypto.createHash('sha256');
-const { sendMail } = require('./../utils/sendEmail');
+const { sendMail } = require('../Service/sendEmail');
 
 const { User, validate } = require('./../models/User');
 const auth = require('./../middlewares/auth');
@@ -27,6 +27,7 @@ router.post('/register', async (req, res) => {
   res.send(_.pick(user, ['name', 'email']));
 });
 
+/** Get All users */
 router.get('/', auth, async (req, res) => {
   const users = await User
     .find()
@@ -35,11 +36,13 @@ router.get('/', auth, async (req, res) => {
   res.send(users);
 });
 
+/** Get Current User */
 router.get('/me', auth, async (req, res) => {
   const users = await User.findOne({ _id: req.user._id });
   res.send(_.pick(users, ['name', 'email', 'phone']));
 });
 
+/** Verification */
 router.get('/verify/:id', auth, async (req, res) => {
 
   const user = await User.findOne({ _id: req.user._id });

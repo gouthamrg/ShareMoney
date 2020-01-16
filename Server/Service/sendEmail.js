@@ -2,7 +2,7 @@ const nodemailer = require('nodemailer');
 const fs = require('fs');
 
 module.exports.sendMail = async function sendMail(mailOptions) {
-  const settings = fs.readFileSync(process.cwd() + '/utils/settings.json');
+  const settings = fs.readFileSync(process.cwd() + '/settings.json');
   const data = JSON.parse(settings);
   var smtpTransport = nodemailer.createTransport({
     service: "gmail",
