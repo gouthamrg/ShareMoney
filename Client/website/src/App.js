@@ -16,7 +16,7 @@ const theme = createMuiTheme({
 });
 
 function App() {
-  const [state, setState] = useState({
+  const [state] = useState({
     user1: { name: 'Goutham RG' }
   });
 
@@ -29,7 +29,7 @@ function App() {
       <div className="App">
         {/* {state.user ? */}
         <NavigationDrawer />
-        {/*  : <SignUp /> */}
+        {/* : <SignUp />} */}
       </div>
     </ThemeProvider>
   );

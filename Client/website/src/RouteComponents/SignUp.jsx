@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Typography from "@material-ui/core/Typography";
 import Container from "@material-ui/core/Container";
-import { Grid, Divider, TextField, Button } from "@material-ui/core";
+import { Grid, TextField, Button } from "@material-ui/core";
 import "./signup.css";
 
 class SignUp extends Component {
@@ -46,26 +46,20 @@ class SignUp extends Component {
               >
                 Sign Up
               </Typography>
-              <TextField
-                label="Email"
-                style={{ marginTop: "25px", marginRight: "20px" }}
-              />
-              <TextField
-                label="password"
-                style={{ marginTop: "25px", marginRight: "20px" }}
-              />
-              <TextField
-                label="Phone Number"
-                style={{ marginTop: "25px", marginRight: "20px" }}
-              />
+              <TextField label="Email" margin="normal" />
+              <TextField label="password" margin="normal" />
+              <TextField label="Phone Number" margin="normal" size="small" />
               <Button
                 color="primary"
-                variant="contained"
-                style={{ marginTop: "25px", marginRight: "20px" }}
+                variant="text"
+                size="small"
+                style={{
+                  marginTop: "25px",
+                  justifyContent: "center"
+                }}
               >
                 Submit
               </Button>
-              {/* </div> */}
             </Grid>
           </Grid>
         </Container>
