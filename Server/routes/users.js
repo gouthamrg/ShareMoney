@@ -28,7 +28,8 @@ router.post('/register', async (req, res) => {
 });
 
 /** Get All users */
-router.get('/', auth, async (req, res) => {
+router.get('/', async (req, res) => {
+  throw new Error('User error!')
   const users = await User
     .find()
     .sort({ name: 1 })
