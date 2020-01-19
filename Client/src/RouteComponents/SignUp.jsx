@@ -6,6 +6,9 @@ import "./signup.css";
 
 class SignUp extends Component {
   state = {};
+
+  handleSubmit = () => {};
+
   render() {
     return (
       <div className="mid-pane">
@@ -53,6 +56,7 @@ class SignUp extends Component {
                 color="primary"
                 variant="text"
                 size="small"
+                onClick={this.handleSubmit}
                 style={{
                   marginTop: "25px",
                   justifyContent: "center"

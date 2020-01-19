@@ -1,26 +1,32 @@
 import React, { Component } from "react";
-import axios from "../Services/httpService";
-import config from "./../config.json";
+import config from "./../config";
 import http from "./../Services/httpService";
 
 class Users extends Component {
   state = {};
 
-  componentDidMount() {
-    this.getUsers();
+  async componentDidMount() {
+    console.log("didmount");
+    await this.getUsers();
   }
 
   getUsers = async () => {
-    let url = `${config.apiEnpoint}/api/users`;
-    const response = await http.get({
-      method: "get",
-      url: url
+    let url = `${config.apiEndpoint}/api/users`;
+    const { data: users } = await http.get(url, {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Content-Type": "application/json"
+      }
     });
-    console.log(response);
+    this.setState({ users: users });
   };
 
   render() {
-    return <h1>Users</h1>;
+    const { users } = this.state;
+    if (!users) return <h4>Loading</h4>;
+
+    // ToDO: UI
+    return <h1>{users.length}</h1>;
   }
 }
 
