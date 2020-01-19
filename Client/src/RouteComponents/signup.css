@@ -1,0 +1,25 @@
+div.mid-pane {
+  background-color: rgba(255, 255, 255, 0.5);
+  /* background-color: #cccccc; */
+  position: relative;
+  margin: auto;
+  width: 50%;
+  top: 20%;
+  padding: 15px;
+}
+
+div.mid-pane:hover {
+  -webkit-box-shadow: 0 0 10px #fff;
+  box-shadow: 0 0 10px rgb(224, 224, 224);
+}
+
+h3.title {
+  color: #0dacac;
+}
+
+div.right-pane {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
