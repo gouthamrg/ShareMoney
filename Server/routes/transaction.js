@@ -137,6 +137,19 @@ router.get("/paidForMeByUsers", auth, async (req, res) => {
 });
 
 // Edit A TRANSACTION
+/**
+ * Edit 
+ * Who can do it => user should have involved in the transactions
+ */
+router.post("/edit", auth, async (req, res) => {
+  const transaction = await Transaction.findById({ _id: req.body._id });
+  if (req.user._id !== transaction.paidBy && !transaction.paidFor.find(u => u._id == req.user._id)) {
+    return res.status(403).send("You are not allowed to edit");
+  }
+  let newTransaction = _.pick(req.body, ["date", "description", "paidBy", "paidFor", "amount", "splitType"]);
+  await Transaction.update({ newTransaction });
+  res.send("Transaction updated successfully");
+});
 
 // Get the due Amount to all
 router.get("/getDueAmount", auth, async (req, res) => {

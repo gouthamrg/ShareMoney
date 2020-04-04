@@ -1,4 +1,5 @@
 const winston = require('winston');
+require('winston-mongodb');
 
 module.exports = function () {
 
@@ -10,7 +11,7 @@ module.exports = function () {
   );
 
   const errorFile = new winston.transports.File({
-    filename: 'error1.log',
+    filename: 'error.log',
     level: 'error'
   });
 
@@ -19,6 +20,11 @@ module.exports = function () {
   winston.add(myconsole);
   winston.add(logFile);
   winston.add(errorFile);
+  winston.add(new winston.transports.MongoDB({
+    db: 'mongodb://localhost/ShareMoney',
+    level: 'error'
+  }));
+
   process.on('unhandledRejection', (ex) => {
     throw ex;
   });
