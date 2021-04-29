@@ -27,9 +27,9 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <div className="App">
-        {/* {state.user ? */}
-        <NavigationDrawer />
-        {/* : <SignUp />} */}
+        {state.user ?
+          <NavigationDrawer />
+          : <SignUp />}
       </div>
     </ThemeProvider>
   );
